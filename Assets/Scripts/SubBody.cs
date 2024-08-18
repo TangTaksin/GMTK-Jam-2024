@@ -7,9 +7,13 @@ public class SubBody : MonoBehaviour
     public Transform anchor;
     public Vector3 offsetFromAnchor;
 
+    Vector3 _defaultScale;
+    Vector3 _defaultOffset;
+
     private void OnEnable()
     {
-
+        _defaultScale = transform.localScale;
+        _defaultOffset = offsetFromAnchor;
     }
 
     private void Update()
@@ -28,33 +32,50 @@ public class SubBody : MonoBehaviour
             anchor.position += amount;
     }
 
-    public void Resize(Side _currentSide, Vector2 _scaleAxis)
+    public void Resize(Side _currentSide, float _scaleAxis)
     {
-        if (_scaleAxis.SqrMagnitude() == 0)
+        if (_scaleAxis == 0)
             return;
+
+        var smallmovement = Vector3.zero;
 
         switch (_currentSide)
         {
             case Side.Top:
-                transform.localScale += Vector3.up * _scaleAxis.y * Time.deltaTime;
-                offsetFromAnchor += Vector3.up * (_scaleAxis.y / 2) * Time.deltaTime;
+                transform.localScale += Vector3.up * _scaleAxis * Time.deltaTime;
+                smallmovement = Vector3.up * (_scaleAxis / 2) * Time.deltaTime;
+                offsetFromAnchor += smallmovement;
                 break;
 
             case Side.Bottom:
-                transform.localScale -= Vector3.up * _scaleAxis.y * Time.deltaTime;
-                offsetFromAnchor += Vector3.up * (_scaleAxis.y / 2) * Time.deltaTime;
+                transform.localScale -= Vector3.down * _scaleAxis * Time.deltaTime;
+                smallmovement = Vector3.down * (_scaleAxis / 2) * Time.deltaTime;
+                offsetFromAnchor += smallmovement;
                 break;
 
             case Side.Left:
-                transform.localScale -= Vector3.right * _scaleAxis.x * Time.deltaTime;
-                offsetFromAnchor += Vector3.right * (_scaleAxis.x / 2) * Time.deltaTime;
+                transform.localScale -= Vector3.left * _scaleAxis * Time.deltaTime;
+                smallmovement = Vector3.left * (_scaleAxis / 2) * Time.deltaTime;
+                offsetFromAnchor += smallmovement;
                 break;
 
             case Side.Right:
-                transform.localScale += Vector3.right * _scaleAxis.x * Time.deltaTime;
-                offsetFromAnchor += Vector3.right * (_scaleAxis.x / 2) * Time.deltaTime;
+                transform.localScale += Vector3.right * _scaleAxis * Time.deltaTime;
+                smallmovement = Vector3.right * (_scaleAxis / 2) * Time.deltaTime;
+                offsetFromAnchor += smallmovement;
                 break;
         }
+
+        if (!anchor)
+        {
+            transform.position += smallmovement;
+        }
+    }
+
+    public void ResetScale()
+    {
+        transform.localScale = _defaultScale;
+        offsetFromAnchor = _defaultOffset;
     }
 
     private void OnDrawGizmos()

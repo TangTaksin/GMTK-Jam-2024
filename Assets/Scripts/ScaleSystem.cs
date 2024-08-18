@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 enum ControlState
 {
     Movement,
-    Selectpart,
     EditScale
 }
 
@@ -31,7 +30,7 @@ public class ScaleSystem : MonoBehaviour
     Side _currentSide = Side.Top;
 
     public float scaleAmount;
-    Vector2 scaleAxis;
+    float scaleAxis;
 
     public delegate void ModeEvent();
 
@@ -52,10 +51,10 @@ public class ScaleSystem : MonoBehaviour
         switch (_currentControl)
         {
             case ControlState.Movement:
-                ToSelectPart();
+                ToEditScale();
                 break;
 
-            case ControlState.Selectpart:
+            case ControlState.EditScale:
                 ToMovement();
                 break;
         }    
@@ -69,7 +68,7 @@ public class ScaleSystem : MonoBehaviour
 
         if (_currentSubbody < 0)
             _currentSubbody = sub_Body.Length - 1;
-        if(shift > sub_Body.Length - 1)
+        if (_currentSubbody > sub_Body.Length - 1)
             _currentSubbody = 0;
     }
 
@@ -77,7 +76,7 @@ public class ScaleSystem : MonoBehaviour
     {
         var dir = _value.Get<Vector2>();
 
-        switch (dir.x ,dir.y)
+        switch (dir.x, dir.y)
         {
             case (0, 1):
                 _currentSide = Side.Top;
@@ -97,24 +96,17 @@ public class ScaleSystem : MonoBehaviour
         }
     }
 
-    public void OnSelect()
-    {
-        ToEditScale();
-    }
-
-    #endregion
-
-    #region EditScale Listener
-
     public void OnResize(InputValue _value)
     {
-        scaleAxis = _value.Get<Vector2>();
-
+        scaleAxis = _value.Get<float>();
     }
 
-    public void OnBack()
+    public void OnResetSize()
     {
-        ToSelectPart();
+        foreach (var _sb in sub_Body)
+        {
+            _sb.ResetScale();
+        }
     }
 
     #endregion
@@ -126,17 +118,10 @@ public class ScaleSystem : MonoBehaviour
         _playerInput.SwitchCurrentActionMap("PlayerMoveMent");
     }
 
-    void ToSelectPart()
-    {
-        _currentControl = ControlState.Selectpart;
-
-        _playerInput.SwitchCurrentActionMap("ScaleMode PartSelect");
-    }
-
     void ToEditScale()
     {
         _currentControl = ControlState.EditScale;
 
-        _playerInput.SwitchCurrentActionMap("ScaleMode EditScale");
+        _playerInput.SwitchCurrentActionMap("ScaleMode");
     }
 }

@@ -28,7 +28,7 @@
                 {
                     "name": "",
                     "id": "b60b53f0-5929-4f2f-9230-c72b95307324",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -72,7 +72,7 @@
             ]
         },
         {
-            "name": "ScaleMode PartSelect",
+            "name": "ScaleMode",
             "id": "b6686e90-2575-492d-a1d1-92ea36f117a9",
             "actions": [
                 {
@@ -103,9 +103,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Select",
+                    "name": "Resize",
+                    "type": "Value",
+                    "id": "68cb9dd5-d399-4e13-9c04-3d309a90568c",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ResetSize",
                     "type": "Button",
-                    "id": "a0827607-6917-478f-9b01-41964ec74dc7",
+                    "id": "097a8971-9719-433e-8bb0-e066c5611ce0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -116,7 +125,7 @@
                 {
                     "name": "",
                     "id": "0bae807f-7ef4-416b-ba5d-eced203c2fc1",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -214,45 +223,19 @@
                 },
                 {
                     "name": "",
-                    "id": "f47a9c2e-e90c-46a6-baff-478fb624c815",
-                    "path": "<Keyboard>/space",
+                    "id": "a0633c5a-0250-4645-a1e9-ff5d0215836d",
+                    "path": "<Keyboard>/u",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Select",
+                    "action": "ResetSize",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "ScaleMode EditScale",
-            "id": "f7007e61-4bb7-41c8-87a2-66a2b1be554d",
-            "actions": [
-                {
-                    "name": "Resize",
-                    "type": "Value",
-                    "id": "afcf75a0-e2cc-4b4f-ac52-2597de5d91ed",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 },
                 {
-                    "name": "Back",
-                    "type": "Button",
-                    "id": "d89f31c7-ccc9-46c8-a65f-696cb1d59514",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "2D Vector",
-                    "id": "891ba28c-5a5b-4e76-a605-16f8465b5610",
-                    "path": "2DVector",
+                    "name": "J K",
+                    "id": "5c5a29c9-d93d-48d8-bb57-6988cc99933f",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -261,9 +244,9 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "e51b8510-5942-4419-ac69-96f8903d988e",
-                    "path": "<Keyboard>/w",
+                    "name": "negative",
+                    "id": "4c5c3da9-4a9f-4ddc-abfe-821e6d666d47",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -272,48 +255,15 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
-                    "id": "c1465e6a-aa1a-44b4-b18c-d88cd2513da6",
-                    "path": "<Keyboard>/s",
+                    "name": "positive",
+                    "id": "67962283-bfdc-43c9-abcb-0669136ce96b",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Resize",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "8bb2cfb1-e1a7-46e6-98e0-1080d4ec2c14",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Resize",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "381f0828-501b-406d-9362-10f3973c2cf6",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Resize",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "1ed41e28-76ff-4422-8383-fb84344fb7c4",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Back",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
