@@ -19,8 +19,8 @@ public class PlayerScripts : MonoBehaviour
 
     private void Update()
     {
-
-        _body.angularVelocity = -_torqueDir * rollForce;
+        if (_torqueDir != 0)
+            _body.angularVelocity = rollForce * -_torqueDir;
     }
 
     public void OnRoll(InputValue _value)

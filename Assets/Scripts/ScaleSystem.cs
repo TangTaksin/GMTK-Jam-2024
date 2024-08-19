@@ -32,7 +32,11 @@ public class ScaleSystem : MonoBehaviour
     public float scaleAmount;
     float scaleAxis;
 
-    public delegate void ModeEvent();
+    public delegate void SwitchEvent(SubBody _sub, Side _side);
+    public static SwitchEvent OnSwitch;
+
+    public delegate void ModeEvent(bool _isEdit);
+    public static ModeEvent OnToggle;
 
     private void Start()
     {
@@ -58,7 +62,11 @@ public class ScaleSystem : MonoBehaviour
             case ControlState.EditScale:
                 ToMovement();
                 break;
-        }    
+        }
+
+        OnToggle?.Invoke(_currentControl == ControlState.EditScale);
+        OnSwitch?.Invoke(sub_Body[_currentSubbody], _currentSide);
+
     }
 
     public void OnSwitchPart(InputValue _value)
@@ -75,6 +83,8 @@ public class ScaleSystem : MonoBehaviour
 
         sub_Body[lastSub].SetImage(false);
         sub_Body[_currentSubbody].SetImage(true);
+
+        OnSwitch?.Invoke(sub_Body[_currentSubbody], _currentSide);
     }
 
     public void OnSwitchSide(InputValue _value)
@@ -99,6 +109,8 @@ public class ScaleSystem : MonoBehaviour
                 _currentSide = Side.Left;
                 break;
         }
+
+        OnSwitch?.Invoke(sub_Body[_currentSubbody], _currentSide);
     }
 
     public void OnResize(InputValue _value)
