@@ -20,7 +20,7 @@ public class PlayerScripts : MonoBehaviour
     private void Update()
     {
 
-        _body.AddTorque(-_torqueDir * rollForce * Time.deltaTime);
+        _body.angularVelocity = -_torqueDir * rollForce;
     }
 
     public void OnRoll(InputValue _value)
