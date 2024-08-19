@@ -97,7 +97,7 @@ public class SubBody : MonoBehaviour
 
         if (!anchor)
         {
-            transform.position += smallmovement;
+            transform.position += transform.rotation * smallmovement;
         }
     }
 
