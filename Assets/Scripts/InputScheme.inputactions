@@ -112,7 +112,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ResetSize",
+                    "name": "ResetAllSize",
                     "type": "Button",
                     "id": "097a8971-9719-433e-8bb0-e066c5611ce0",
                     "expectedControlType": "Button",
@@ -121,9 +121,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ResetCurrentSubbody",
+                    "name": "ResetPartSize",
                     "type": "Button",
-                    "id": "29740bcd-3a7a-4f33-861e-1b04a618ab6a",
+                    "id": "593ed631-381c-4f40-bec2-a1c6cff2e862",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -237,7 +237,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ResetSize",
+                    "action": "ResetAllSize",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -276,12 +276,12 @@
                 },
                 {
                     "name": "",
-                    "id": "735bb118-19be-418d-a530-cf46c87cfd11",
+                    "id": "1c3d6750-4d36-485b-bb2c-7cc719ef36de",
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ResetCurrentSubbody",
+                    "action": "ResetPartSize",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
