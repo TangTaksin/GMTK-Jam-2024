@@ -52,6 +52,7 @@ public class ScaleSystem : MonoBehaviour
         {
             case ControlState.Movement:
                 ToEditScale();
+
                 break;
 
             case ControlState.EditScale:
@@ -63,6 +64,7 @@ public class ScaleSystem : MonoBehaviour
     public void OnSwitchPart(InputValue _value)
     {
         var shift = _value.Get<float>();
+        var lastSub = _currentSubbody;
 
         _currentSubbody += (int)shift;
 
@@ -70,6 +72,9 @@ public class ScaleSystem : MonoBehaviour
             _currentSubbody = sub_Body.Length - 1;
         if (_currentSubbody > sub_Body.Length - 1)
             _currentSubbody = 0;
+
+        sub_Body[lastSub].SetImage(false);
+        sub_Body[_currentSubbody].SetImage(true);
     }
 
     public void OnSwitchSide(InputValue _value)
@@ -101,7 +106,7 @@ public class ScaleSystem : MonoBehaviour
         scaleAxis = _value.Get<float>();
     }
 
-    public void OnResetSize()
+    public void OnResetAllSize()
     {
         foreach (var _sb in sub_Body)
         {
@@ -109,11 +114,17 @@ public class ScaleSystem : MonoBehaviour
         }
     }
 
+    public void OnResetPartSize()
+    {
+        sub_Body[_currentSubbody].ResetScale();
+    }
+
     #endregion
 
     void ToMovement()
     {
         _currentControl = ControlState.Movement;
+        sub_Body[_currentSubbody].SetImage(false);
 
         _playerInput.SwitchCurrentActionMap("PlayerMoveMent");
     }
@@ -121,6 +132,7 @@ public class ScaleSystem : MonoBehaviour
     void ToEditScale()
     {
         _currentControl = ControlState.EditScale;
+        sub_Body[_currentSubbody].SetImage(true);
 
         _playerInput.SwitchCurrentActionMap("ScaleMode");
     }
