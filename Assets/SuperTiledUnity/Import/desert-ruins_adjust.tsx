@@ -58,7 +58,7 @@
  </tile>
  <tile id="39">
   <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="12.6875" height="16"/>
+   <object id="1" x="0" y="0" width="11.5938" height="16"/>
   </objectgroup>
  </tile>
  <tile id="49">
@@ -93,7 +93,7 @@
  </tile>
  <tile id="55">
   <objectgroup draworder="index" id="2">
-   <object id="1" x="-0.125" y="0" width="12.1875" height="16"/>
+   <object id="1" x="-0.125" y="0" width="10.2188" height="15.9375"/>
   </objectgroup>
  </tile>
  <tile id="65">
@@ -288,6 +288,13 @@
    <wangtile tileid="67" wangid="0,0,0,1,0,1,0,0"/>
    <wangtile tileid="68" wangid="0,0,0,1,0,1,0,0"/>
    <wangtile tileid="146" wangid="0,1,0,1,0,1,0,1"/>
+  </wangset>
+  <wangset name="Unnamed Set" type="corner" tile="-1">
+   <wangcolor name="" color="#ff0000" tile="-1" probability="1"/>
+   <wangtile tileid="177" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="178" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="179" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="180" wangid="0,1,0,1,0,1,0,1"/>
   </wangset>
  </wangsets>
 </tileset>
