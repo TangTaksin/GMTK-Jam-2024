@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
-
 enum ControlState
 {
     Movement,
@@ -22,17 +20,14 @@ public enum Side
 public class ScaleSystem : MonoBehaviour
 {
     ControlState _currentControl;
-
     PlayerInput _playerInput;
 
     public SubBody[] sub_Body;
     int _currentSubbody = 0;
     Side _currentSide = Side.Top;
 
-    public float scaleAmount;
+    public float scaleAmount = 1.0f; // Set a default scale amount
     float scaleAxis;
-
-    public delegate void ModeEvent();
 
     private void Start()
     {
@@ -41,7 +36,7 @@ public class ScaleSystem : MonoBehaviour
 
     private void Update()
     {
-        sub_Body[_currentSubbody].Resize(_currentSide, scaleAxis);
+        sub_Body[_currentSubbody].Resize(_currentSide, scaleAxis * scaleAmount); // Apply scaleAmount here
     }
 
     #region PartSelect Listener
@@ -57,19 +52,28 @@ public class ScaleSystem : MonoBehaviour
             case ControlState.EditScale:
                 ToMovement();
                 break;
-        }    
+        }
     }
 
     public void OnSwitchPart(InputValue _value)
     {
         var shift = _value.Get<float>();
 
-        _currentSubbody += (int)shift;
+        if (_currentControl == ControlState.EditScale)
+        {
+            // Reset the color of the currently selected sub body
+            sub_Body[_currentSubbody].SetColor(Color.white); // Assuming default color is white
 
-        if (_currentSubbody < 0)
-            _currentSubbody = sub_Body.Length - 1;
-        if (_currentSubbody > sub_Body.Length - 1)
-            _currentSubbody = 0;
+            _currentSubbody += (int)shift;
+
+            if (_currentSubbody < 0)
+                _currentSubbody = sub_Body.Length - 1;
+            if (_currentSubbody >= sub_Body.Length)
+                _currentSubbody = 0;
+
+            // Highlight the newly selected sub body
+            HighlightCurrentSubBody();
+        }
     }
 
     public void OnSwitchSide(InputValue _value)
@@ -107,6 +111,21 @@ public class ScaleSystem : MonoBehaviour
         {
             _sb.ResetScale();
         }
+
+        // Re-highlight the current sub-body after reset
+        if (_currentControl == ControlState.EditScale)
+        {
+            HighlightCurrentSubBody();
+        }
+    }
+
+    public void OnResetCurrentSubbody()
+    {
+        sub_Body[_currentSubbody].ResetScale();
+        if (_currentControl == ControlState.EditScale)
+        {
+            HighlightCurrentSubBody(); // Reapply the highlight after resetting the scale
+        }
     }
 
     #endregion
@@ -114,14 +133,28 @@ public class ScaleSystem : MonoBehaviour
     void ToMovement()
     {
         _currentControl = ControlState.Movement;
-
         _playerInput.SwitchCurrentActionMap("PlayerMoveMent");
+
+        // Remove highlight when switching to Movement mode
+        RemoveHighlightCurrentSubBody();
     }
 
     void ToEditScale()
     {
         _currentControl = ControlState.EditScale;
-
         _playerInput.SwitchCurrentActionMap("ScaleMode");
+
+        // Highlight the current sub-body when switching to EditScale mode
+        HighlightCurrentSubBody();
+    }
+
+    void HighlightCurrentSubBody()
+    {
+        sub_Body[_currentSubbody].SetColor(Color.red);
+    }
+
+    void RemoveHighlightCurrentSubBody()
+    {
+        sub_Body[_currentSubbody].SetColor(Color.white); // Reset to default color
     }
 }

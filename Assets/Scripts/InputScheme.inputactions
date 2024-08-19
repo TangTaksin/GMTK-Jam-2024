@@ -119,6 +119,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ResetCurrentSubbody",
+                    "type": "Button",
+                    "id": "29740bcd-3a7a-4f33-861e-1b04a618ab6a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -264,6 +273,17 @@
                     "action": "Resize",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "735bb118-19be-418d-a530-cf46c87cfd11",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetCurrentSubbody",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
