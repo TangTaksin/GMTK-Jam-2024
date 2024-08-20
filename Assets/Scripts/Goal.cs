@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,11 @@ public class Goal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Scene currentScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currentScene.buildIndex + 1);
+            Fader.OnFadeIn.Invoke();
         }
     }
 
-     private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
 
@@ -25,5 +25,25 @@ public class Goal : MonoBehaviour
             // Draw a wireframe box representing the collider
             Gizmos.DrawWireCube(collider.bounds.center, collider.bounds.size);
         }
+    }
+
+    public void LoadNextScene(String sceneName)
+    {
+        if (sceneName == "Fade_In")
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.buildIndex + 1);
+        }
+    }
+
+    private void OnEnable()
+    {
+        Fader.FadeFinished += LoadNextScene;
+    }
+
+    private void OnDisable()
+    {
+        Fader.FadeFinished -= LoadNextScene;
+
     }
 }
