@@ -5,8 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MoveScene : MonoBehaviour
 {
-    public void SceneLoad(string _sceneName)
+    public string scene_Name;
+
+    private void OnEnable()
     {
-        SceneManager.LoadScene(_sceneName);
+        Fader.FadeFinished += SceneLoad;
+    }
+
+    public void StartFade()
+    {
+        Fader.OnFadeIn?.Invoke();
+    }
+
+    void SceneLoad(string _anim)
+    {
+        if (_anim == "Fade_In")
+        {
+            SceneManager.LoadScene(scene_Name);
+            Fader.OnFadeIn?.Invoke();
+        }
     }
 }
