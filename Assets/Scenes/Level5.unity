@@ -238,7 +238,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 0
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.693
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.16
   m_DeadZoneHeight: 0.15
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
-  m_BiasY: 0
+  m_BiasY: -0.112
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
@@ -1351,7 +1351,7 @@ Transform:
   m_GameObject: {fileID: 1285027602}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24999952, y: -7.1499996, z: -10}
+  m_LocalPosition: {x: 14.49, y: -7.17, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1661,7 +1661,7 @@ Transform:
   m_GameObject: {fileID: 1557781915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24999952, y: -7.1499996, z: -10}
+  m_LocalPosition: {x: 14.49, y: -7.17, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2336,9 +2336,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sub_Body:
   - {fileID: 1844367098}
-  - {fileID: 1844367098}
-  - {fileID: 1844367098}
-  - {fileID: 1844367098}
+  - {fileID: 350359986}
+  - {fileID: 1794537727}
+  - {fileID: 1903466828}
+  - {fileID: 2104664784}
   scaleAmount: 20
 --- !u!114 &1823458755
 MonoBehaviour:
@@ -2362,7 +2363,7 @@ Transform:
   m_GameObject: {fileID: 1823458751}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -7.15, z: 0}
+  m_LocalPosition: {x: 14.49, y: -9.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2518,7 +2519,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 854103867, guid: 67edc3f0697c94345828f3df6e24a74e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
   m_Size: {x: 1, y: 1}
