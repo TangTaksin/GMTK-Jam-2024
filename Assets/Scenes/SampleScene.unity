@@ -3740,6 +3740,7 @@ GameObject:
   - component: {fileID: 1311116553}
   - component: {fileID: 1311116552}
   - component: {fileID: 1311116551}
+  - component: {fileID: 1311116554}
   m_Layer: 5
   m_Name: Time Start
   m_TagString: Untagged
@@ -3811,9 +3812,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 882604949}
-        m_TargetAssemblyTypeName: TimeSystem, Assembly-CSharp
-        m_MethodName: StartTimer
+      - m_Target: {fileID: 1311116554}
+        m_TargetAssemblyTypeName: TimeEventTest, Assembly-CSharp
+        m_MethodName: StartTimeEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3861,6 +3862,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311116549}
   m_CullTransparentMesh: 1
+--- !u!114 &1311116554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311116549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c978263b64a681e4395a0be0c4b19b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1330355475
 GameObject:
   m_ObjectHideFlags: 0
