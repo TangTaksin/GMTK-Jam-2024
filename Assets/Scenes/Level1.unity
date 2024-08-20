@@ -1237,8 +1237,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- Play Time -'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 14543df7f3cd3bc419532d110cc1c8c5, type: 2}
-  m_sharedMaterial: {fileID: -107199973029883485, guid: 14543df7f3cd3bc419532d110cc1c8c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f931c98807c6ed43ae907e4bda2fcc7, type: 2}
+  m_sharedMaterial: {fileID: 700665280766079391, guid: 1f931c98807c6ed43ae907e4bda2fcc7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1262,10 +1262,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSize: 61.1
+  m_fontSizeBase: 61.1
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1520,8 +1520,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 14543df7f3cd3bc419532d110cc1c8c5, type: 2}
-  m_sharedMaterial: {fileID: -107199973029883485, guid: 14543df7f3cd3bc419532d110cc1c8c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f931c98807c6ed43ae907e4bda2fcc7, type: 2}
+  m_sharedMaterial: {fileID: 700665280766079391, guid: 1f931c98807c6ed43ae907e4bda2fcc7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1545,8 +1545,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
-  m_fontSizeBase: 200
+  m_fontSize: 84
+  m_fontSizeBase: 84
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4036,6 +4036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clock_txt: {fileID: 940087141}
+  playtimeText: {fileID: 454791235}
 --- !u!1 &1955610848
 GameObject:
   m_ObjectHideFlags: 0

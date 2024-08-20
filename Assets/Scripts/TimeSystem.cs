@@ -10,6 +10,7 @@ public class TimeSystem : MonoBehaviour
     static bool timeIsRunning;
 
     public TextMeshProUGUI clock_txt;
+    public TextMeshProUGUI playtimeText;
 
     public delegate void TimerDelegate();
     public static TimerDelegate OnStart;
@@ -66,6 +67,8 @@ public class TimeSystem : MonoBehaviour
     public void StartTimer()
     {
         timeIsRunning = true;
+        playtimeText.gameObject.SetActive(true);
+        clock_txt.gameObject.SetActive(true);
     }
 
     public void PauseTimer()
@@ -76,6 +79,8 @@ public class TimeSystem : MonoBehaviour
 
     public void ResetTimer()
     {
+        playtimeText.gameObject.SetActive(false);
+        clock_txt.gameObject.SetActive(false);
         totalPlayTime = 0;
     }
 }
