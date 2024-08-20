@@ -10,7 +10,13 @@ public class ScaleSystemUI : MonoBehaviour
     public GameObject scaleUIPanel;
     public GameObject pointer;
 
-    [Header("Fluff")]
+    [Header("Prompt")]
+    public GameObject up_prompt;
+    public GameObject down_prompt;
+    public GameObject left_prompt;
+    public GameObject right_prompt;
+
+    [Header("Guide Panel")]
     public Image toggleImage;
     public Sprite toggleOffSpr;
     public Sprite toggleOnSpr;
@@ -49,6 +55,10 @@ public class ScaleSystemUI : MonoBehaviour
             var _angleOff = Quaternion.Euler(0, 0, _angle + _target.transform.rotation.eulerAngles.z);
             pointer.transform.rotation = _angleOff;
 
+            up_prompt.transform.position = UpdatePromptPosition(Vector2.up);
+            down_prompt.transform.position = UpdatePromptPosition(Vector2.down);
+            left_prompt.transform.position = UpdatePromptPosition(Vector2.left);
+            right_prompt.transform.position = UpdatePromptPosition(Vector2.right);
         }
     }
 
@@ -93,5 +103,18 @@ public class ScaleSystemUI : MonoBehaviour
                 _angle = 90;
                 break;
         }
+    }
+
+
+
+    Vector3 UpdatePromptPosition(Vector3 _dir)
+    {
+        
+        var _offseted = new Vector3(_dir.x * (_target.transform.lossyScale.x / 2 + .5f), _dir.y * (_target.transform.lossyScale.y / 2 + .5f));
+        var _rotated = _target.transform.rotation * _offseted;
+        var _sum = _target.transform.position + _rotated;
+
+        return _camera.WorldToScreenPoint(_sum);
+
     }
 }
