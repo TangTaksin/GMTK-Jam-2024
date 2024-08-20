@@ -12,9 +12,9 @@ public class TimeSystem : MonoBehaviour
     public TextMeshProUGUI clock_txt;
 
     public delegate void TimerDelegate();
-    public static TimerDelegate Start;
-    public static TimerDelegate Pause;
-    public static TimerDelegate Reset;
+    public static TimerDelegate OnStart;
+    public static TimerDelegate OnPause;
+    public static TimerDelegate OnReset;
 
     public delegate void TimerData(float _time);
     public static TimerData SentTime;
@@ -33,18 +33,18 @@ public class TimeSystem : MonoBehaviour
 
     private void OnEnable()
     {
-        Start += Start;
-        Pause += Pause;
-        Reset += Reset;
+        OnStart += StartTimer;
+        OnPause += PauseTimer;
+        OnReset += ResetTimer;
 
         UpdateClock(totalPlayTime);
     }
 
     private void OnDisable()
     {
-        Start -= Start;
-        Pause -= Pause;
-        Reset -= Reset;
+        OnStart -= StartTimer;
+        OnPause -= PauseTimer;
+        OnReset -= ResetTimer;
     }
 
     private void Update()
