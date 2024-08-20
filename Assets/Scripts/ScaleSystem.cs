@@ -55,11 +55,13 @@ public class ScaleSystem : MonoBehaviour
         switch (_currentControl)
         {
             case ControlState.Movement:
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.switchMode_sfx);
                 ToEditScale();
 
                 break;
 
             case ControlState.EditScale:
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.switchMode_sfx);
                 ToMovement();
                 break;
         }
@@ -71,6 +73,7 @@ public class ScaleSystem : MonoBehaviour
 
     public void OnSwitchPart(InputValue _value)
     {
+        
         var shift = _value.Get<float>();
         var lastSub = _currentSubbody;
 
@@ -83,12 +86,14 @@ public class ScaleSystem : MonoBehaviour
 
         sub_Body[lastSub].SetImage(false);
         sub_Body[_currentSubbody].SetImage(true);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.selectPast_sfx);
 
         OnSwitch?.Invoke(sub_Body[_currentSubbody], _currentSide);
     }
 
     public void OnSwitchSide(InputValue _value)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.selectside_sfx);
         var dir = _value.Get<Vector2>();
 
         switch (dir.x, dir.y)
@@ -129,6 +134,7 @@ public class ScaleSystem : MonoBehaviour
     public void OnResetPartSize()
     {
         sub_Body[_currentSubbody].ResetScale();
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.resetScale_sfx);
     }
 
     #endregion

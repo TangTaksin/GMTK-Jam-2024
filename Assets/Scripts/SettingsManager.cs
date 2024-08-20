@@ -34,6 +34,28 @@ public class SettingsManager : MonoBehaviour
         {
             ToggleSettingsPanel();
         }
+
+        // // Load specific levels with number keys
+        // if (Input.GetKeyDown(KeyCode.Alpha1))
+        // {
+        //     SceneManager.LoadScene("Level1");
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Alpha2))
+        // {
+        //     SceneManager.LoadScene("Level2");
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Alpha3))
+        // {
+        //     SceneManager.LoadScene("Level3");
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Alpha4))
+        // {
+        //     SceneManager.LoadScene("Level4");
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Alpha5))
+        // {
+        //     SceneManager.LoadScene("Level5");
+        // }
     }
 
     public void SetMusicVolume()

@@ -387,6 +387,70 @@ PrefabInstance:
       propertyPath: music_Bg
       value: 
       objectReference: {fileID: 8300000, guid: b02d074fb09e10b4a9678ca210eb7ed7, type: 3}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: scaleUp_sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a136b5ce5556bd4bbdaa4153e4d4258, type: 3}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: scaleDown_sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b7b594208e5d7d4ca7c1a4879f00901, type: 3}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: maxTimeBetween
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: minTimeBetween
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: resetScale_sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: a2453ca795cce9c4f8db7f9ff7cfbc2c, type: 3}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: selectPast_sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: a572dc853e82f0f4dba833a54097aa8d, type: 3}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: selectside_sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ce76dc66c33a33428102fd5e5672f09, type: 3}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: switchMode_sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: c4dfd53c6a0a5e9438768af2453761a8, type: 3}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: maxTimeBetweenBound
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: minTimeBetweenBound
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: bound_sfx.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: scaleUp_sfx.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: bound_sfx.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ebaf74d2ca7e13d4689065642dc45906, type: 3}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: bound_sfx.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4970cbee488d0084cb1c3b7533101a15, type: 3}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: scaleUp_sfx.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a136b5ce5556bd4bbdaa4153e4d4258, type: 3}
+    - target: {fileID: 6884607963792746875, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: scaleUp_sfx.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1cd4ef75631a1f6468988ad4ff0ccea4, type: 3}
     - target: {fileID: 7394543105718058509, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
       propertyPath: m_Volume
       value: 0.529

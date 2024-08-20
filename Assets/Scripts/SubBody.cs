@@ -51,6 +51,7 @@ public class SubBody : MonoBehaviour
             return;
 
         var smallmovement = Vector3.zero;
+        AudioManager.Instance.PlayScaleUpSFX();
 
         switch (_currentSide)
         {
@@ -103,6 +104,7 @@ public class SubBody : MonoBehaviour
 
     public void ResetScale()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.resetScale_sfx);
         _targetScale = _defaultScale;
         offsetFromAnchor = _defaultOffset;
     }
@@ -113,6 +115,11 @@ public class SubBody : MonoBehaviour
             _animator?.Play("Edit_anim");
         else
             _animator?.Play("Normal_anim");
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        AudioManager.Instance.PlayBoundSFX();
     }
 
     private void OnDrawGizmos()
