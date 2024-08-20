@@ -20,7 +20,7 @@ public class SubBody : MonoBehaviour
     private void OnEnable()
     {
         _animator = GetComponent<Animator>();
-        _collider= GetComponent<BoxCollider2D>();
+        _collider = GetComponent<BoxCollider2D>();
 
         _defaultScale = transform.localScale;
         _defaultOffset = offsetFromAnchor;
@@ -35,7 +35,7 @@ public class SubBody : MonoBehaviour
             var rotatedVector = anchor.rotation * offsetFromAnchor;
             transform.position = anchor.position + rotatedVector;
         }
-            
+
         transform.localScale = Vector3.Lerp(transform.localScale, _targetScale, Time.deltaTime * scaleLerpSpeed);
     }
 
@@ -51,6 +51,7 @@ public class SubBody : MonoBehaviour
             return;
 
         var smallmovement = Vector3.zero;
+        AudioManager.Instance.PlayScaleUpSFX();
 
         switch (_currentSide)
         {
@@ -103,8 +104,10 @@ public class SubBody : MonoBehaviour
 
     public void ResetScale()
     {
+
         _targetScale = _defaultScale;
         offsetFromAnchor = _defaultOffset;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.resetScale_sfx);
     }
 
     public void SetImage(bool _isEdit)
@@ -118,6 +121,11 @@ public class SubBody : MonoBehaviour
     public Collider2D GetCollidor()
     {
         return _collider;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        AudioManager.Instance.PlayBoundSFX();
     }
 
     private void OnDrawGizmos()

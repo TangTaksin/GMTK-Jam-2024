@@ -32,6 +32,11 @@ public class DynamicLens : MonoBehaviour
         _target.position = _tbounds.center;
 
         _lensOrthoTarget = _tbounds.size.magnitude + orthoLensBuffer;
-        _cinemachine.m_Lens.OrthographicSize = Mathf.Lerp(_cinemachine.m_Lens.OrthographicSize, _lensOrthoTarget, Time.deltaTime);
+
+        // Reduce the interpolation factor for a smoother transition
+        float interpolationFactor = 0.05f; // Smaller value for smoother transition
+
+        _lensOrthoTarget = _tbounds.size.magnitude + orthoLensBuffer;
+        _cinemachine.m_Lens.OrthographicSize = Mathf.Lerp(_cinemachine.m_Lens.OrthographicSize, _lensOrthoTarget, Time.deltaTime * interpolationFactor);
     }
 }
