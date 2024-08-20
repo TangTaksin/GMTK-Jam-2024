@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SettingsManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
+    [SerializeField] private GameObject settingPanal;
 
     private void Awake()
     {
@@ -17,12 +19,21 @@ public class SettingsManager : MonoBehaviour
         {
             LoadVolume();
         }
-
     }
 
-    private void Start()
+    private void Update()
     {
+        // Restart level when 'R' is pressed
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartLevel();
+        }
 
+        // Toggle settings panel when 'P' is pressed
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ToggleSettingsPanel();
+        }
     }
 
     public void SetMusicVolume()
@@ -30,7 +41,6 @@ public class SettingsManager : MonoBehaviour
         float volume = musicSlider.value;
         myMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("musicVolume", volume);
-
     }
 
     public void SetSFXVolume()
@@ -45,5 +55,31 @@ public class SettingsManager : MonoBehaviour
         Debug.Log("Loading volume");
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
         sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void ToggleSettingsPanel()
+    {
+        // Toggle the active state of the settings panel
+        settingPanal.SetActive(!settingPanal.activeSelf);
+
+        // If the settings panel is active, pause the game time; otherwise, resume the game time
+        if (settingPanal.activeSelf)
+        {
+            Time.timeScale = 0f;  // Pause the game
+        }
+        else
+        {
+            Time.timeScale = 1f;  // Resume the game
+        }
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
     }
 }

@@ -387,11 +387,23 @@ PrefabInstance:
       propertyPath: music_Bg
       value: 
       objectReference: {fileID: 8300000, guid: b02d074fb09e10b4a9678ca210eb7ed7, type: 3}
+    - target: {fileID: 7394543105718058509, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      propertyPath: m_Volume
+      value: 0.529
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6741974926203429485, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1961835232}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+--- !u!4 &106580019 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6741974926203429485, guid: 794ae610391e2624f946659f2a5433c3, type: 3}
+  m_PrefabInstance: {fileID: 106580018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &207523854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,6 +2818,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1961835233}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1850668610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3095,7 +3119,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 9
   m_TargetDisplay: 0
 --- !u!224 &1961835232
 RectTransform:
@@ -3110,7 +3134,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 910846710}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 106580019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3132,6 +3156,7 @@ MonoBehaviour:
   myMixer: {fileID: 24100000, guid: 9cd6a2ed6126f1d40a4ca19f1650b68c, type: 2}
   musicSlider: {fileID: 1476037693}
   sfxSlider: {fileID: 1109175551}
+  settingPanal: {fileID: 910846709}
 --- !u!1 &2120793736
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,7 +3334,6 @@ SceneRoots:
   - {fileID: 336804445}
   - {fileID: 1184678541}
   - {fileID: 1165116425}
-  - {fileID: 1961835232}
   - {fileID: 106580018}
   - {fileID: 1348811951}
   - {fileID: 1034577921}
