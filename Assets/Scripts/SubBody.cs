@@ -115,6 +115,11 @@ public class SubBody : MonoBehaviour
             _animator?.Play("Normal_anim");
     }
 
+    public Collider2D GetCollidor()
+    {
+        return _collider;
+    }
+
     private void OnDrawGizmos()
     {
         if (!anchor)

@@ -32,6 +32,8 @@ public class ScaleSystem : MonoBehaviour
     public float scaleAmount;
     float scaleAxis;
 
+    Bounds _bound;
+
     public delegate void SwitchEvent(SubBody _sub, Side _side);
     public static SwitchEvent OnSwitch;
 
@@ -46,6 +48,7 @@ public class ScaleSystem : MonoBehaviour
     private void Update()
     {
         sub_Body[_currentSubbody].Resize(_currentSide, scaleAxis);
+        UpdateBound();
     }
 
     #region PartSelect Listener
@@ -147,5 +150,26 @@ public class ScaleSystem : MonoBehaviour
         sub_Body[_currentSubbody].SetImage(true);
 
         _playerInput.SwitchCurrentActionMap("ScaleMode");
+    }
+
+    void UpdateBound()
+    {
+        _bound = sub_Body[0].GetCollidor().bounds;
+
+        foreach (var _sb in sub_Body)
+        {
+            _bound.Encapsulate(_sb.GetCollidor().bounds);
+            
+        }
+    }
+
+    public Bounds GetBound()
+    {
+        return _bound;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(_bound.center, _bound.size);
     }
 }
